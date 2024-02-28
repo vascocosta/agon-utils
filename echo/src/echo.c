@@ -17,7 +17,12 @@ int main(int argc, char *argv[])
 				continue;
 			}
 
-			printf("%s ", argv[i]);
+			printf("%s", argv[i]);
+
+			if (i < argc - 1)
+			{
+				printf(" ");
+			}
 		}
 	}
 

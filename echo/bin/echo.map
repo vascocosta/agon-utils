@@ -5,9 +5,9 @@ Section     Base   Top    High   Length
 .fini       0B0079 0B00BF            46h
 .init.args  0B00BF 0B00D5            16h
 .init.bss   0B00D5 0B00E1             Ch
-.text       0B00E1 0B2B6A          2A89h
-.data       0B2B6A 0B2BAF            45h
-.rodata     0B2BAF 0B2CA3            F4h
+.text       0B00E1 0B2B91          2AB0h
+.data       0B2B91 0B2BD6            45h
+.rodata     0B2BD6 0B2CC9            F3h
 .init_array 000000 000000             0h
 .ctors      000000 000000             0h
 .dtors      000000 000000             0h
@@ -32,9 +32,9 @@ ___arg_processing      = 0B010D
 ___parse_args          = 0B012E
 ___check_redirect      = 0B0211
 ___close_redir_files   = 0B0402
-_.str                  = 0B2BAF
-_.str.1                = 0B2BB1
-_.str.2                = 0B2BB3
+_.str                  = 0B2BD6
+_.str.1                = 0B2BD8
+_.str.2                = 0B2BDA
 __frameset             = 0B044B
 __frameset0            = 0B0459
 __iand                 = 0B0464
@@ -70,13 +70,13 @@ __lshrs.hijack_lshru   = 0B080F
 __lshru                = 0B081E
 _fclose                = 0B082E
 __stdio_init           = 0B0872
-_stdin                 = 0B2B6A
-_stdout                = 0B2B6F
-_stderr                = 0B2B74
+_stdin                 = 0B2B91
+_stdout                = 0B2B96
+_stderr                = 0B2B9B
 __file_streams         = 080000
 _fopen                 = 0B08C4
 ___fmodeflags          = 0B0985
-_.str                  = 0B2BB5
+_.str                  = 0B2BDC
 _fputc                 = 0B09EC
 _fput_char             = 0B0A7C
 _free                  = 0B0AA3
@@ -84,26 +84,26 @@ _fseek                 = 0B0B60
 _malloc                = 0B0C09
 __alloc_base           = 080028
 _npf_vpprintf          = 0B0CA8
-JTI0_0                 = 0B2BB9
-JTI0_1                 = 0B2BD7
-JTI0_2                 = 0B2C1C
-JTI0_3                 = 0B2C3D
-JTI0_4                 = 0B2C55
-JTI0_5                 = 0B2C6D
+JTI0_0                 = 0B2BE0
+JTI0_1                 = 0B2BFE
+JTI0_2                 = 0B2C43
+JTI0_3                 = 0B2C64
+JTI0_4                 = 0B2C7C
+JTI0_5                 = 0B2C94
 _npf_utoa_rev          = 0B2412
 _printf                = 0B24DA
 _vprintf               = 0B24F9
 _npf_putc_std          = 0B2519
-_.str                  = 0B2C85
-_.str.1                = 0B2C89
-_.str.2                = 0B2C8D
+_.str                  = 0B2CAC
+_.str.1                = 0B2CB0
+_.str.2                = 0B2CB4
 _outchar               = 0B2529
 _putchar               = 0B2530
 _puts                  = 0B255F
-___null_literal_str    = 0B2C91
-___end_of_line_str     = 0B2C98
+___null_literal_str    = 0B2CB8
+___end_of_line_str     = 0B2CBF
 _sbrk                  = 0B258B
-__sbrkbase             = 0B2B79
+__sbrkbase             = 0B2BA0
 _strchr                = 0B25A9
 _strcmp                = 0B25C6
 _strlen                = 0B25E3
@@ -120,10 +120,10 @@ skip._abort            = 0B00B3
 _exit.sp               = 0B00B4
 _clear_bss             = 0B00D5
 _parse_params          = 0B00BF
-argv_ptrs              = 0B2B7C
+argv_ptrs              = 0B2BA3
 _atexit                = 0B2ABA
-exit_functions         = 0B2BAC
+exit_functions         = 0B2BD3
 ___main_argc_argv      = 0B2AE6
-_.str                  = 0B2C9A
-_.str.1                = 0B2C9D
-_str                   = 0B2CA1
+_.str                  = 0B2CC1
+_.str.1                = 0B2CC4
+_str                   = 0B2CC7
