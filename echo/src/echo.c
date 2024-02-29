@@ -2,18 +2,32 @@
 #include <stdio.h>
 #include <string.h>
 
+void show_usage(char *prog_name)
+{
+	printf("Usage: %s [-hn] string\r\n", prog_name);
+	printf("-h show this help message\r\n");
+	printf("-n supress trailing newline\r\n");
+}
+
 int main(int argc, char *argv[])
 {
-	int i;
-	bool new_line = true;
+	bool newline = true;
 
 	if (argc > 1)
 	{
-		for (i = 1; i < argc; i++)
+		for (int i = 1; i < argc; i++)
 		{
+			if (strcmp(argv[i], "-h") == 0)
+			{
+				show_usage(argv[0]);
+
+				return 0;
+			}
+
 			if (strcmp(argv[i], "-n") == 0)
 			{
-				new_line = false;
+				newline = false;
+
 				continue;
 			}
 
@@ -26,7 +40,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (new_line)
+	if (newline)
 	{
 		printf("\r\n");
 	}
