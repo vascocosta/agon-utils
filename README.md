@@ -10,3 +10,39 @@ Following Agon Light's spirit, the tools are kept as simple as possible, favouri
 * grep
 
 More coming soon...
+
+## Install
+
+1. Download from the bin folder of each utility or all utils from a release.
+2. Copy binaries into the `mos` folder inside your sd card (run as MOSlets).
+
+## Deps
+
+[CE C/C++ Toolchain](https://github.com/CE-Programming/toolchain)
+[AgDev - an Agon Light port of CE C/C++ Toolchain](https://github.com/pcawte/AgDev)
+
+## Build
+
+```
+cd util-folder
+make clean
+make
+```
+
+## Usage
+
+### echo
+
+```
+Usage: %s [-hn] string
+-h show this help message
+-n supress trailing newline
+```
+
+### grep
+
+```
+Usage: %s [-hi] pattern filename
+-h show this help message
+-i case insensitive matching
+```
