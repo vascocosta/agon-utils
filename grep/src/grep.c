@@ -1,13 +1,36 @@
+#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-void match_pattern(FILE *file, const char *pattern)
+void show_usage(char *prog_name)
+{
+	printf("Usage: %s [-hi] pattern filename\r\n", prog_name);
+	printf("-h show this help message\r\n");
+	printf("-i case insensitive matching\r\n");
+}
+
+void to_lower(char *str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		str[i] = tolower(str[i]);
+	}
+}
+
+void match_pattern(bool insensitive, char *pattern, FILE *file)
 {
 	char line[1024];
 
 	while (fgets(line, sizeof(line), file))
 	{
+		if (insensitive)
+		{
+			to_lower(pattern);
+			to_lower(line);
+		}
+
 		if (strstr(line, pattern))
 		{
 			printf("%s", line);
@@ -15,26 +38,47 @@ void match_pattern(FILE *file, const char *pattern)
 	}
 }
 
-void show_usage(char *prog_name)
-{
-	printf("Usage: %s <pattern> <filename>\r\n", prog_name);
-}
-
 int main(int argc, char *argv[])
 {
 	FILE *file;
-	const char *filename;
-	const char *pattern;
+	bool insensitive = false;
+	char *pattern = NULL;
+	char *filename = NULL;
 
-	if (argc != 3)
+	for (int i = 1; i != argc; i++)
+	{
+		if (strcmp(argv[i], "-h") == 0)
+		{
+			show_usage(argv[0]);
+
+			return 0;
+		}
+		else if (strcmp(argv[i], "-i") == 0)
+		{
+			insensitive = true;
+		}
+		else if (!pattern)
+		{
+			pattern = argv[i];
+		}
+		else if (!filename)
+		{
+			filename = argv[i];
+		}
+		else
+		{
+			show_usage(argv[0]);
+
+			return 0;
+		}
+	}
+
+	if (pattern == NULL || filename == NULL)
 	{
 		show_usage(argv[0]);
 
 		return 0;
 	}
-
-	filename = argv[2];
-	pattern = argv[1];
 
 	if (!(file = fopen(filename, "r")))
 	{
@@ -43,7 +87,7 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	match_pattern(file, pattern);
+	match_pattern(insensitive, pattern, file);
 	fclose(file);
 
 	return 0;
