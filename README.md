@@ -8,6 +8,7 @@ Following Agon Light's spirit, the tools are kept as simple as possible, favouri
 
 * echo
 * grep
+* strings
 * wc
 
 More coming soon...
@@ -47,6 +48,13 @@ Usage: %s [-hn] string
 Usage: %s [-hi] pattern filename
 -h show this help message
 -i case insensitive matching
+```
+
+### strings
+
+```
+Usage: %s [-h] filename
+-h show this help message
 ```
 
 ### wc
