@@ -48,3 +48,13 @@ Usage: %s [-hi] pattern filename
 -h show this help message
 -i case insensitive matching
 ```
+
+### wc
+
+```
+Usage: %s [-chlw] filename
+-c print the characters count
+-h show this help message
+-l print the lines count
+-w print the words count
+```
