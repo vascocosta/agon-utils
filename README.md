@@ -53,8 +53,9 @@ Usage: %s [-hi] pattern filename
 ### strings
 
 ```
-Usage: %s [-h] filename
+Usage: %s [-hn min-len] filename
 -h show this help message
+-n strings at least min-len long (default: 4)
 ```
 
 ### wc

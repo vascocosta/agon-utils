@@ -1,39 +1,36 @@
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void show_usage(char *prog_name)
 {
-	printf("Usage: %s [-h] filename\r\n", prog_name);
+	printf("Usage: %s [-hn min-len] filename\r\n", prog_name);
 	printf("-h show this help message\r\n");
+	printf("-n strings at least min-len long (default: 4)\r\n");
 }
 
-void show_strings(FILE *file)
+void show_str(int str_len, FILE *file)
 {
-	int ch;
-	const size_t max_len = 1024;
-	size_t cur_len = 0;
+	char ch;
 	char buf[1024];
+	int cur_len = 0;
 
 	while (fread(&ch, 1, 1, file) > 0)
 	{
-		if (cur_len < max_len)
+		if ((int)ch > 31 && (int)ch < 128)
 		{
-			if (ch == 10 || ch == 13 || (ch > 31 && ch < 128))
-			{
-				buf[cur_len++] = ch;
-			}
+			buf[cur_len++] = ch;
+		}
+		else if (cur_len >= str_len)
+		{
+			fwrite(buf, 1, cur_len, stdout);
+			printf("\r\n");
+			cur_len = 0;
 		}
 		else
 		{
-			fwrite(buf, 1, cur_len, stdout);
 			cur_len = 0;
 		}
-	}
-
-	if (cur_len < max_len)
-	{
-		fwrite(buf, 1, cur_len, stdout);
 	}
 }
 
@@ -41,6 +38,7 @@ int main(int argc, char *argv[])
 {
 	FILE *file = NULL;
 	char *filename = NULL;
+	int str_len = 4;
 
 	for (int i = 1; i != argc; i++)
 	{
@@ -49,6 +47,10 @@ int main(int argc, char *argv[])
 			show_usage(argv[0]);
 
 			return 0;
+		}
+		else if (strncmp(argv[i], "-n", 2) == 0)
+		{
+			str_len = atoi(argv[++i]);
 		}
 		else if (!filename)
 		{
@@ -76,7 +78,7 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	show_strings(file);
+	show_str(str_len, file);
 	printf("\r\n");
 	fclose(file);
 
