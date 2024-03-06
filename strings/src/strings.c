@@ -9,11 +9,11 @@ void show_usage(char *prog_name)
 	printf("-n strings at least min-len long (default: 4)\r\n");
 }
 
-void show_str(int str_len, FILE *file)
+void show_str(size_t str_len, FILE *file)
 {
 	char ch;
 	char buf[1024];
-	int cur_len = 0;
+	size_t cur_len = 0;
 
 	while (fread(&ch, 1, 1, file) > 0)
 	{
@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 {
 	FILE *file = NULL;
 	char *filename = NULL;
-	int str_len = 4;
+	int parsed_len = 0;
+	size_t str_len = 4;
 
 	for (int i = 1; i != argc; i++)
 	{
@@ -50,7 +51,16 @@ int main(int argc, char *argv[])
 		}
 		else if (strncmp(argv[i], "-n", 2) == 0)
 		{
-			str_len = atoi(argv[++i]);
+			parsed_len = atoi(argv[++i]);
+
+			if (parsed_len <= 0)
+			{
+				fprintf(stderr, "The min-len must be positive");
+
+				return 1;
+			}
+
+			str_len = parsed_len;
 		}
 		else if (!filename)
 		{
