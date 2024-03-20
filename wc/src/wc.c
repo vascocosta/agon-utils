@@ -36,16 +36,27 @@ unsigned count_words(char *str)
 
 void show_counts(FILE *file, bool lines, bool words, bool chars)
 {
-	char line[1024];
+	char buf[1024];
+	size_t bytes_read;
 	int lc = 0;
 	int wc = 0;
 	int cc = 0;
 
-	while (fgets(line, sizeof(line), file))
+	while ((bytes_read = fread(buf, 1, sizeof(buf), file)) > 0)
 	{
-		lc += 1;
-		cc += strlen(line);
-		wc += count_words(line);
+		for (size_t i = 0; i < bytes_read; i++)
+		{
+			if (buf[i] == '\n')
+			{
+				lc++;
+			}
+			else if (buf[i] != '\r')
+			{
+				cc++;
+			}
+		}
+
+		wc += count_words(buf);
 	}
 
 	if (!(lines || words || chars))
