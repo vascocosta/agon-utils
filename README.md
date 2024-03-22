@@ -8,6 +8,7 @@ Following Agon Light's spirit, the tools are kept as simple as possible, favouri
 
 * echo
 * grep
+* head
 * strings
 * wc
 
