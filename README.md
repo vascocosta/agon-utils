@@ -50,6 +50,14 @@ Usage: %s [-hi] pattern filename
 -i case insensitive matching
 ```
 
+### head
+
+```
+Usage: %s [-hn] filename
+-h show this help message
+-n print the first n lines (default: 10)
+```
+
 ### strings
 
 ```
