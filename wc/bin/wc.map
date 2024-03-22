@@ -5,9 +5,9 @@ Section     Base   Top    High   Length
 .fini       0B0079 0B00BF            46h
 .init.args  0B00BF 0B00D5            16h
 .init.bss   0B00D5 0B00E1             Ch
-.text       0B00E1 0B31B5          30D4h
-.data       0B31B5 0B31FA            45h
-.rodata     0B31FA 0B33A3           1A9h
+.text       0B00E1 0B31BA          30D9h
+.data       0B31BA 0B31FF            45h
+.rodata     0B31FF 0B33A8           1A9h
 .init_array 000000 000000             0h
 .ctors      000000 000000             0h
 .dtors      000000 000000             0h
@@ -33,9 +33,9 @@ ___arg_processing      = 0B0114
 ___parse_args          = 0B0135
 ___check_redirect      = 0B0218
 ___close_redir_files   = 0B0409
-_.str                  = 0B31FA
-_.str.1                = 0B31FC
-_.str.2                = 0B31FE
+_.str                  = 0B31FF
+_.str.1                = 0B3201
+_.str.2                = 0B3203
 __frameset             = 0B0452
 __frameset0            = 0B0460
 __iand                 = 0B046B
@@ -74,13 +74,13 @@ __lshru                = 0B0845
 _fclose                = 0B0855
 _fgetc                 = 0B0899
 __stdio_init           = 0B0978
-_stdin                 = 0B31B5
-_stdout                = 0B31BA
-_stderr                = 0B31BF
+_stdin                 = 0B31BA
+_stdout                = 0B31BF
+_stderr                = 0B31C4
 __file_streams         = 080000
 _fopen                 = 0B09CA
 ___fmodeflags          = 0B0A8B
-_.str                  = 0B3200
+_.str                  = 0B3205
 _fputc                 = 0B0AF2
 _fput_char             = 0B0B82
 _fread                 = 0B0BA9
@@ -90,26 +90,26 @@ _fwrite                = 0B0DDB
 _malloc                = 0B0EAF
 __alloc_base           = 080028
 _npf_vpprintf          = 0B0F4E
-JTI0_0                 = 0B3204
-JTI0_1                 = 0B3222
-JTI0_2                 = 0B3267
-JTI0_3                 = 0B3288
-JTI0_4                 = 0B32A0
-JTI0_5                 = 0B32B8
+JTI0_0                 = 0B3209
+JTI0_1                 = 0B3227
+JTI0_2                 = 0B326C
+JTI0_3                 = 0B328D
+JTI0_4                 = 0B32A5
+JTI0_5                 = 0B32BD
 _npf_utoa_rev          = 0B26B8
 _printf                = 0B2780
 _vprintf               = 0B279F
 _npf_putc_std          = 0B27BF
-_.str                  = 0B32D0
-_.str.1                = 0B32D4
-_.str.2                = 0B32D8
+_.str                  = 0B32D5
+_.str.1                = 0B32D9
+_.str.2                = 0B32DD
 _outchar               = 0B27CF
 _putchar               = 0B27D6
 _puts                  = 0B2805
-___null_literal_str    = 0B32DC
-___end_of_line_str     = 0B32E3
+___null_literal_str    = 0B32E1
+___end_of_line_str     = 0B32E8
 _sbrk                  = 0B2831
-__sbrkbase             = 0B31C4
+__sbrkbase             = 0B31C9
 _strchr                = 0B284F
 _strcmp                = 0B286C
 _strlen                = 0B2889
@@ -130,25 +130,25 @@ skip._abort            = 0B00B3
 _exit.sp               = 0B00B4
 _clear_bss             = 0B00D5
 _parse_params          = 0B00BF
-argv_ptrs              = 0B31C7
+argv_ptrs              = 0B31CC
 _atexit                = 0B2D9D
-exit_functions         = 0B31F7
+exit_functions         = 0B31FC
 _show_usage            = 0B2DC9
 _count_words           = 0B2E07
-_show_counts           = 0B2E56
-___main_argc_argv      = 0B304C
-_.str                  = 0B32E5
-_.str.5                = 0B3302
-_.str.6                = 0B330B
-_.str.7                = 0B330F
-_.str.9                = 0B3312
-_.str.10               = 0B3315
-_.str.11               = 0B3318
-_.str.12               = 0B331B
-_.str.13               = 0B331E
-_.str.14               = 0B3320
-_str                   = 0B3333
-_str.15                = 0B3352
-_str.16                = 0B336D
-_str.17                = 0B3387
-_str.18                = 0B33A1
+_show_counts           = 0B2E5B
+___main_argc_argv      = 0B3051
+_.str                  = 0B32EA
+_.str.5                = 0B3307
+_.str.6                = 0B3310
+_.str.7                = 0B3314
+_.str.9                = 0B3317
+_.str.10               = 0B331A
+_.str.11               = 0B331D
+_.str.12               = 0B3320
+_.str.13               = 0B3323
+_.str.14               = 0B3325
+_str                   = 0B3338
+_str.15                = 0B3357
+_str.16                = 0B3372
+_str.17                = 0B338C
+_str.18                = 0B33A6
