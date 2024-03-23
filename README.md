@@ -67,6 +67,14 @@ Usage: %s [-hn min-len] filename
 -n strings at least min-len long (default: 4)
 ```
 
+### tail
+
+```
+Usage: %s [-hn] filename
+-h show this help message
+-n print the last n lines (default: 10)
+```
+
 ### wc
 
 ```
